@@ -1,6 +1,22 @@
-<div *ngFor="let step of steps">
-    <h3>{{ step.title }}</h3>
-    <p>{{ step.description }}</p>
-    <!-- Agrega cualquier otro contenido o estilo que necesites -->
+<!-- escena.component.html -->
+
+<div *ngFor="let step of steps" class="step-container">
+    <div class="image-container" [style.background-color]="step.bgcolor">
+      <img src="{{ step.img }}" alt="{{ step.title }}" class="step-image">
+    </div>
+    <div class="text-container">
+      <h3 class="step-title">{{ step.title }}</h3>
+      <p class="step-description">{{ step.description }}</p>
+      <div class="progress-bar-and-button">
+        <div class="progress-bar">
+          <div *ngFor="let dot of [1, 2, 3, 4]" class="progress-dot"></div>
+          <div class="progress-bar-fill"></div>
+        </div>
+        <div class="arrow-button">
+          <!-- Use an appropriate icon library or an SVG for the arrow button -->
+          <span>&#10148;</span>
+        </div>
+      </div>
+    </div>
   </div>
   

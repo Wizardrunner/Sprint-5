@@ -1,0 +1,72 @@
+/* escena.component.css */
+
+.step-container {
+    position: relative;
+    width: 480px;
+    height: auto;
+    margin: 20px auto; /* Add space around the container */
+    overflow: hidden;
+    border-radius: 10px; /* Add rounded corners */
+  }
+  
+  .image-container {
+    width: 100%;
+    height: 250px; /* Adjust the height as needed */
+    overflow: hidden;
+  }
+  
+  .step-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .text-container {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .step-title {
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .step-description {
+    color: #000;
+  }
+  
+  .progress-bar-and-button {
+    margin-top: 20px; /* Adjust the space between paragraph and progress bar/button */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .progress-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .progress-dot {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .progress-bar-fill {
+    width: 20px;
+    height: 10px;
+    background: #000;
+    border-radius: 5px;
+  }
+  
+  .arrow-button {
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%; /* Add rounded corners to the button */
+    cursor: pointer;
+  }
+  
