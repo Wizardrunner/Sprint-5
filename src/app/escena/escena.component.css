@@ -74,8 +74,8 @@
 
 .arrow-button {
     padding: 10px;
-    background: #fff;
-    color: #000;
+    background: #000;
+    color: #fff;
     width: 30px;
     height: 30px;
     border-radius: 50%; /* Agregar esquinas redondeadas al botón */
@@ -88,7 +88,7 @@
 }
 
 .arrow-button:hover {
-    background: #000;
-    color: #fff;
-    border-color: #fff; /* Cambiar el color del borde al pasar el ratón por encima */
+    background: #fff;
+    color: #000;
+    border-color: #000; /* Cambiar el color del borde al pasar el ratón por encima */
 }
