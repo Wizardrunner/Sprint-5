@@ -1,22 +1,27 @@
 <!-- escena.component.html -->
 
-<div *ngFor="let step of steps" class="step-container">
-    <div class="image-container" [style.background-color]="step.bgcolor">
-      <img src="{{ step.img }}" alt="{{ step.title }}" class="step-image">
-    </div>
-    <div class="text-container">
-      <h3 class="step-title">{{ step.title }}</h3>
-      <p class="step-description">{{ step.description }}</p>
-      <div class="progress-bar-and-button">
-        <div class="progress-bar">
-          <div *ngFor="let dot of [1, 2, 3, 4]" class="progress-dot"></div>
-          <div class="progress-bar-fill"></div>
+<div class="step-container">
+  <div class="image-container" [style.background-color]="getCurrentStep().bgcolor">
+    <img src="{{ getCurrentStep().img }}" alt="{{ getCurrentStep().title }}" class="step-image">
+  </div>
+  <div class="text-container">
+    <h3 class="step-title">{{ getCurrentStep().title }}</h3>
+    <p class="step-description">{{ getCurrentStep().description }}</p>
+    <div class="progress-bar-and-button">
+      <div class="progress-bar">
+        <div *ngFor="let dot of [1, 2, 3, 4]" class="progress-dot"></div>
+        <div class="progress-bar-fill" [style.left]="getProgressBarPosition()"></div>
+      </div>
+      <div class="arrow-buttons">
+        <div class="arrow-button reverse" (click)="prevStep()" *ngIf="currentStep > 0">
+          <!-- Uso un código html de flecha derecha invertido -->
+          <span>&#10148;</span>
         </div>
-        <div class="arrow-button">
-          <!-- Use an appropriate icon library or an SVG for the arrow button -->
+        <div class="arrow-button" (click)="nextStep()" *ngIf="currentStep < steps.length - 1">
+          <!-- Uso un código html de flecha derecha -->
           <span>&#10148;</span>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

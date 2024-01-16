@@ -1,18 +1,27 @@
 /* escena.component.css */
+.progress-bar-fill {
+    height: 10px;
+    background: #000;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 40%; 
+    transition: left 0.3s ease; /* Transición suave para el cambio de posición */
+}
 
 .step-container {
     position: relative;
     width: 300px;
     height: auto;
-    margin: 20px auto; /* Agregar espacio alrededor del contenedor */
+    margin: 20px auto;
     overflow: hidden;
-    border-radius: 30px; /* Aumentar esquinas redondeadas */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Aumentar el tamaño de la sombra difusa */
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .image-container {
     width: 100%;
-    height: 400px; 
+    height: 400px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -28,23 +37,23 @@
 .text-container {
     padding: 10px 20px 20px 20px;
     box-sizing: border-box;
-    margin-bottom: 30px; /* Prolongar el espacio hacia abajo */
+    margin-bottom: 30px;
 }
 
 .step-title {
     font-weight: bold;
     color: #000;
-    font-family: sans-serif; /* Agregar una fuente sin serifa al título */
+    font-family: sans-serif;
 }
 
 .step-description {
     color: #000;
-    font-family: sans-serif; /* Agregar una fuente sin serifa al párrafo */
-    font-size: 14px; /* Ajustar el tamaño del texto del párrafo */
+    font-family: sans-serif;
+    font-size: 14px;
 }
 
 .progress-bar-and-button {
-    margin-top: 50px; /* Ajustar el espacio entre el párrafo y la barra de progreso/botón */
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,6 +62,8 @@
 .progress-bar {
     display: flex;
     align-items: center;
+    position: relative;
+    height: 10px;
 }
 
 .progress-dot {
@@ -63,32 +74,33 @@
     margin-right: 5px;
 }
 
-.progress-bar-fill {
-    width: 25px;
-    height: 10px;
-    background: #000;
-    border-radius: 5px;
-    position: relative;
-    left: -60px; /* Ajustar la posición para que esté en la misma línea que los dos primeros puntos */
+
+.arrow-buttons {
+    display: flex;
 }
 
 .arrow-button {
+    margin-right: 10px;
     padding: 10px;
     background: #000;
     color: #fff;
     width: 30px;
     height: 30px;
-    border-radius: 50%; /* Agregar esquinas redondeadas al botón */
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background 0.3s, color 0.3s, border-color 0.3s; /* Agregar transición */
-    border: 1px solid #000; /* Agregar borde fino negro */
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+    border: 1px solid #000;
+}
+
+.arrow-button.reverse {
+    transform: scaleX(-1);
 }
 
 .arrow-button:hover {
     background: #fff;
     color: #000;
-    border-color: #000; /* Cambiar el color del borde al pasar el ratón por encima */
+    border-color: #000;
 }

@@ -1,16 +1,10 @@
 // src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { EscenaComponent } from './escena/escena.component';
 import { StepsService } from './steps.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    EscenaComponent
   ],
   imports: [
     BrowserModule
@@ -18,7 +12,7 @@ import { StepsService } from './steps.service';
   providers: [
     StepsService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }
 
