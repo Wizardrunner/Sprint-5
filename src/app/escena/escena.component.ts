@@ -1,31 +1,8 @@
 // escena.component.ts
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { iStep } from '../istep';
-import { trigger, transition, query, style, animate, group } from '@angular/animations';
-
-const left = [
-  query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
-  group([
-    query(':enter', [style({ transform: 'translateX(-100%)' }), animate('.3s ease-out', style({ transform: 'translateX(0%)' }))], {
-      optional: true,
-    }),
-    query(':leave', [style({ transform: 'translateX(0%)' }), animate('.3s ease-out', style({ transform: 'translateX(100%)' }))], {
-      optional: true,
-    }),
-  ]),
-];
-
-const right = [
-  query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
-  group([
-    query(':enter', [style({ transform: 'translateX(100%)' }), animate('.3s ease-out', style({ transform: 'translateX(0%)' }))], {
-      optional: true,
-    }),
-    query(':leave', [style({ transform: 'translateX(0%)' }), animate('.3s ease-out', style({ transform: 'translateX(-100%)' }))], {
-      optional: true,
-    }),
-  ]),
-];
+import { trigger, transition, style, animate } from '@angular/animations';
+import { AnimationStateService } from '../animation-state.service';
 
 @Component({
   selector: 'app-escena',
@@ -33,27 +10,35 @@ const right = [
   styleUrls: ['./escena.component.css'],
   animations: [
     trigger('animSlider', [
-      transition(':increment', right),
-      transition(':decrement', left),
+      transition(':increment', [
+        style({ transform: 'translateX(100%)' }),
+        animate('.3s ease-out', style({ transform: 'translateX(0%)' })),
+      ]),
+      transition(':decrement', [
+        style({ transform: 'translateX(-100%)' }),
+        animate('.3s ease-out', style({ transform: 'translateX(0%)' })),
+      ]),
     ]),
   ],
 })
-
-
 export class EscenaComponent {
   @Input() steps: iStep[] = [];
+  @Output() stepChanged = new EventEmitter<number>();
   currentStep: number = 0;
 
+  constructor(private animationStateService: AnimationStateService) {}
 
   nextStep() {
     if (this.currentStep < this.steps.length - 1) {
       this.currentStep++;
+      this.stepChanged.emit(this.currentStep);
     }
   }
 
   prevStep() {
     if (this.currentStep > 0) {
       this.currentStep--;
+      this.stepChanged.emit(this.currentStep);
     }
   }
 
@@ -61,8 +46,8 @@ export class EscenaComponent {
     return this.steps[this.currentStep];
   }
 
-getProgressBarPosition(): string {
-  const progressBarStep = 15;
-  return `${this.currentStep * progressBarStep}px`;
-}
+  getProgressBarPosition(): string {
+    const progressBarStep = 15;
+    return `${this.currentStep * progressBarStep}px`;
+  }
 }

@@ -7,6 +7,6 @@ import { EscenaComponent } from '../escena/escena.component';
 @NgModule({
   declarations: [HomeComponent, EscenaComponent],
   imports: [CommonModule],
-  exports: [HomeComponent],
+  exports: [HomeComponent, EscenaComponent],
 })
 export class HomeModule { }

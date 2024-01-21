@@ -1,8 +1,8 @@
 <!-- escena.component.html -->
 
-<div class="step-container">
+<div class="step-container" [@animSlider]="currentStep">
   <div class="image-container" [style.background-color]="getCurrentStep().bgcolor">
-    <img src="{{ getCurrentStep().img }}" alt="{{ getCurrentStep().title }}" class="step-image">
+    <img [src]="getCurrentStep().img" alt="{{ getCurrentStep().title }}" class="step-image">
   </div>
   <div class="text-container">
     <h3 class="step-title">{{ getCurrentStep().title }}</h3>
@@ -14,11 +14,9 @@
       </div>
       <div class="arrow-buttons">
         <div class="arrow-button reverse" (click)="prevStep()" *ngIf="currentStep > 0">
-          <!-- Uso un código html de flecha derecha invertido -->
           <span>&#10148;</span>
         </div>
         <div class="arrow-button" (click)="nextStep()" *ngIf="currentStep < steps.length - 1">
-          <!-- Uso un código html de flecha derecha -->
           <span>&#10148;</span>
         </div>
       </div>

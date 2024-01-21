@@ -1,2 +1,2 @@
 <!-- home.component.html -->
-<app-escena [steps]="steps"></app-escena>
+<app-escena [steps]="steps" (stepChanged)="setCurrentStep($event)"></app-escena>
